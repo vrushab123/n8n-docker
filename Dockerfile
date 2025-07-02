@@ -1,9 +1,7 @@
 FROM n8nio/n8n
 
-# Install ffmpeg
-RUN apt-get update && \
-    apt-get install -y ffmpeg && \
-    apt-get clean
+# Install ffmpeg on Alpine
+RUN apk update && apk add --no-cache ffmpeg
 
 # Optional: Add basic auth if you want to protect the UI
 ENV N8N_BASIC_AUTH_ACTIVE=true
