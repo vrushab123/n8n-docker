@@ -3,7 +3,9 @@ FROM n8nio/n8n
 # Switch to root to install ffmpeg
 USER root
 
-RUN apk update && apk add --no-cache ffmpeg
+RUN apk update && \
+    apk add --no-cache ffmpeg python3 py3-pip && \
+    pip install yt-dlp --no-cache ffmpeg
 
 # Switch back to the n8n user
 USER node
